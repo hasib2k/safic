@@ -99,7 +99,7 @@ export default function Home() {
           <div className="section-header">
             <h2 className="section-title text-mobile-xl md:text-2xl lg:text-3xl">Today&apos;s Prayer Times</h2>
             <div className="text-center mb-6">
-              <div className="card-mobile bg-primary-50 border border-primary-200 max-w-md mx-auto">
+              <div className="max-w-md mx-auto">
                 <div className="flex items-center justify-center space-x-2 mb-2">
                   <Clock size={20} className="text-primary-600" />
                   <span className="text-sm text-gray-600">Current Time</span>
@@ -180,7 +180,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="card-spiritual text-center">
+            <div className="text-center">
               <div className="text-4xl mb-4 text-primary-600 font-arabic">زكاة</div>
               <h3 className="text-xl font-heading font-semibold mb-3 text-gray-800">Zakat & Charity</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -188,7 +188,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="card-spiritual text-center">
+            <div className="text-center">
               <div className="text-4xl mb-4 text-primary-600 font-arabic">أسرة</div>
               <h3 className="text-xl font-heading font-semibold mb-3 text-gray-800">Family Support</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -210,31 +210,31 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            <a href="/dashboard" className="card-spiritual text-center block no-underline">
+            <a href="/dashboard" className="card-mobile text-center block no-underline haptic-light hover:bg-primary-50 hover:border-primary-200 hover:shadow-lg hover:scale-102 hover:rounded-lg transition-all duration-300">
               <div className="text-3xl mb-3 font-arabic">لوحة</div>
               <h3 className="font-heading font-semibold text-lg mb-2 text-gray-800">Islamic Dashboard</h3>
               <p className="text-gray-600 text-sm">Prayer times, Qibla, calendar, and tasbeeh tools</p>
             </a>
 
-            <Link href="/events" className="card-mobile text-center block no-underline haptic-light">
+            <Link href="/events" className="card-mobile text-center block no-underline haptic-light hover:bg-primary-50 hover:border-primary-200 hover:shadow-lg hover:scale-102 hover:rounded-lg transition-all duration-300">
               <div className="text-2xl md:text-3xl mb-3 font-arabic text-primary-600">أحداث</div>
               <h3 className="font-heading font-semibold text-base md:text-lg mb-2 text-gray-800">Upcoming Events</h3>
               <p className="text-gray-600 text-sm">View our latest programs and community activities</p>
             </Link>
 
-            <Link href="/donations" className="card-mobile text-center block no-underline haptic-light">
+            <Link href="/donations" className="card-mobile text-center block no-underline haptic-light hover:bg-secondary-50 hover:border-secondary-200 hover:shadow-lg hover:scale-102 hover:rounded-lg transition-all duration-300">
               <div className="text-2xl md:text-3xl mb-3 font-arabic text-secondary-600">تبرع</div>
               <h3 className="font-heading font-semibold text-base md:text-lg mb-2 text-gray-800">Donate</h3>
               <p className="text-gray-600 text-sm">Support our masjid and community programs</p>
             </Link>
 
-            <Link href="/gallery" className="card-mobile text-center block no-underline haptic-light">
+            <Link href="/gallery" className="card-mobile text-center block no-underline haptic-light hover:bg-primary-50 hover:border-primary-200 hover:shadow-lg hover:scale-102 hover:rounded-lg transition-all duration-300">
               <div className="text-2xl md:text-3xl mb-3 font-arabic text-primary-600">معرض</div>
               <h3 className="font-heading font-semibold text-base md:text-lg mb-2 text-gray-800">Gallery</h3>
               <p className="text-gray-600 text-sm">Explore photos from our community events</p>
             </Link>
 
-            <Link href="/contact" className="card-mobile text-center block no-underline haptic-light">
+            <Link href="/contact" className="card-mobile text-center block no-underline haptic-light hover:bg-primary-50 hover:border-primary-200 hover:shadow-lg hover:scale-102 hover:rounded-lg transition-all duration-300">
               <div className="text-2xl md:text-3xl mb-3 font-arabic text-primary-600">اتصال</div>
               <h3 className="font-heading font-semibold text-base md:text-lg mb-2 text-gray-800">Contact Us</h3>
               <p className="text-gray-600 text-sm">Get in touch with our staff and leadership</p>

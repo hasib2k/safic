@@ -15,7 +15,7 @@ export default function LivePrayerTimes() {
   const [prayerTimes, setPrayerTimes] = useState<PrayerTime[]>([])
 
   const basePrayerTimes = useMemo(() => [
-    { name: 'Fajr', time: '5:30', arabic: 'الفجر' },
+    { name: 'Fajr', time: '05:30', arabic: 'الفجر' },
     { name: 'Dhuhr', time: '12:45', arabic: 'الظهر' },
     { name: 'Asr', time: '16:15', arabic: 'العصر' },
     { name: 'Maghrib', time: '19:20', arabic: 'المغرب' },

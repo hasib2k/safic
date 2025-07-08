@@ -50,7 +50,7 @@ const Header: React.FC = () => {
       <div className="container-mobile">
         <div className="flex items-center justify-between h-16 py-2">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 flex-shrink-0 group touch-target">
+          <Link href="/" className="flex items-center space-x-2 flex-shrink-0 group touch-target ml-4">
             <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-105">
               <div className="text-white font-bold text-lg">🕌</div>
             </div>
@@ -91,7 +91,7 @@ const Header: React.FC = () => {
             {/* Donate Button - Always Visible */}
             <Link 
               href="/donations" 
-              className="bg-gradient-to-r from-secondary-600 to-secondary-700 hover:from-secondary-700 hover:to-secondary-800 text-white px-4 py-2 rounded-md transition-all duration-300 flex items-center gap-2 font-semibold text-sm shadow-md hover:shadow-lg hover:scale-105 ring-1 ring-secondary-400/30 touch-target haptic-light"
+              className="bg-gradient-to-r from-secondary-600 to-secondary-700 hover:from-secondary-700 hover:to-secondary-800 text-white px-4 py-2 rounded-md transition-all duration-300 flex items-center gap-2 font-semibold text-sm shadow-md hover:shadow-lg hover:scale-105 ring-1 ring-secondary-400/30 touch-target haptic-light mr-16"
             >
               <Heart size={16} className="animate-pulse" />
               <span className="hidden sm:inline">Donate</span>
