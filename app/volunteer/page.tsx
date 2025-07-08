@@ -1,8 +1,12 @@
-import { Metadata } from 'next'
+import { Metadata, Viewport } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Volunteer - Sultanpur Al-Falah Islamic Center',
-  description: 'Join our volunteer team and serve the community at Sultanpur Al-Falah Islamic Center',
+  title: 'Volunteer Opportunities - Sultanpur Al-Falah Islamic Center',
+  description: 'Join our community volunteers and help serve our ummah at Sultanpur Al-Falah Islamic Center',
+}
+
+export const viewport: Viewport = {
+  themeColor: '#1B5E20',
 }
 
 interface VolunteerOpportunity {

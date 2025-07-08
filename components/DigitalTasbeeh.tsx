@@ -26,7 +26,11 @@ export default function DigitalTasbeeh() {
     if (saved) {
       try {
         const data = JSON.parse(saved)
-        setSessions(data.sessions || sessions)
+        setSessions(data.sessions || [
+          { dhikr: 'SubhanAllah', count: 0, target: 33, arabic: 'سُبْحَانَ اللّهِ' },
+          { dhikr: 'Alhamdulillah', count: 0, target: 33, arabic: 'الْحَمْدُ لِلَّهِ' },
+          { dhikr: 'Allahu Akbar', count: 0, target: 34, arabic: 'اللَّهُ أَكْبَرُ' },
+        ])
         setTotalCount(data.totalCount || 0)
         setLastReset(data.lastReset ? new Date(data.lastReset) : null)
       } catch (error) {

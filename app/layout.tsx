@@ -11,7 +11,6 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Sultanpur Al-Falah Islamic Center',
   description: 'Sultanpur Al-Falah Islamic Center - A place of worship, community, and spiritual growth serving the Muslim community in Dhaka',
-  themeColor: '#1B5E20',
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,

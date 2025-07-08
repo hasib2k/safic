@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 
 interface PrayerTime {
   name: string
@@ -14,13 +14,13 @@ export default function LivePrayerTimes() {
   const [currentTime, setCurrentTime] = useState('')
   const [prayerTimes, setPrayerTimes] = useState<PrayerTime[]>([])
 
-  const basePrayerTimes = [
+  const basePrayerTimes = useMemo(() => [
     { name: 'Fajr', time: '5:30', arabic: 'الفجر' },
     { name: 'Dhuhr', time: '12:45', arabic: 'الظهر' },
     { name: 'Asr', time: '16:15', arabic: 'العصر' },
     { name: 'Maghrib', time: '19:20', arabic: 'المغرب' },
     { name: 'Isha', time: '20:45', arabic: 'العشاء' },
-  ]
+  ], [])
 
   useEffect(() => {
     const updateTimes = () => {
@@ -74,7 +74,7 @@ export default function LivePrayerTimes() {
     const interval = setInterval(updateTimes, 60000) // Update every minute
 
     return () => clearInterval(interval)
-  }, [])
+  }, [basePrayerTimes])
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6">

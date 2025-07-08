@@ -1,8 +1,12 @@
-import { Metadata } from 'next'
+import { Metadata, Viewport } from 'next'
 
 export const metadata: Metadata = {
   title: 'Contact Us - Sultanpur Al-Falah Islamic Center',
   description: 'Get in touch with Sultanpur Al-Falah Islamic Center community and leadership in Dhaka',
+}
+
+export const viewport: Viewport = {
+  themeColor: '#1B5E20',
 }
 
 const contactInfo = {

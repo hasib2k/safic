@@ -1,9 +1,10 @@
+import { Metadata, Viewport } from 'next'
 import LivePrayerTimes from '../../components/LivePrayerTimes'
 import QiblaFinder from '../../components/QiblaFinder'
 import IslamicCalendar from '../../components/IslamicCalendar'
 import DigitalTasbeeh from '../../components/DigitalTasbeeh'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Islamic Dashboard - Sultanpur Al-Falah Islamic Center',
   description: 'Live prayer times, Qibla direction, Islamic calendar, and digital tasbeeh counter for daily Islamic practices.',
   keywords: 'prayer times, qibla direction, islamic calendar, tasbeeh counter, dhikr, islamic tools',
@@ -12,6 +13,10 @@ export const metadata = {
     description: 'Live prayer times, Qibla direction, Islamic calendar, and digital tasbeeh counter.',
     type: 'website',
   }
+}
+
+export const viewport: Viewport = {
+  themeColor: '#1B5E20',
 }
 
 export default function IslamicDashboardPage() {

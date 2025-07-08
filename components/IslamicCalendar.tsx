@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 
 interface IslamicDate {
   day: number
@@ -13,13 +13,13 @@ export default function IslamicCalendar() {
   const [islamicDate, setIslamicDate] = useState<IslamicDate | null>(null)
   const [upcomingEvents, setUpcomingEvents] = useState<Array<{name: string, date: string, description: string}>>([])
 
-  const islamicMonths = [
+  const islamicMonths = useMemo(() => [
     'Muharram', 'Safar', 'Rabi\' al-awwal', 'Rabi\' al-thani',
     'Jumada al-awwal', 'Jumada al-thani', 'Rajab', 'Sha\'ban',
     'Ramadan', 'Shawwal', 'Dhu al-Qi\'dah', 'Dhu al-Hijjah'
-  ]
+  ], [])
 
-  const islamicEvents = [
+  const islamicEvents = useMemo(() => [
     { name: 'Day of Ashura', month: 1, day: 10, description: 'Day of remembrance and fasting' },
     { name: 'Mawlid an-Nabi', month: 3, day: 12, description: 'Birth of Prophet Muhammad (SAW)' },
     { name: 'Isra and Mi\'raj', month: 7, day: 27, description: 'Night Journey of the Prophet' },
@@ -29,10 +29,10 @@ export default function IslamicCalendar() {
     { name: 'Eid al-Fitr', month: 10, day: 1, description: 'Festival of Breaking the Fast' },
     { name: 'Day of Arafah', month: 12, day: 9, description: 'Day of Hajj pilgrimage' },
     { name: 'Eid al-Adha', month: 12, day: 10, description: 'Festival of Sacrifice' }
-  ]
+  ], [])
 
   // Simple Hijri date calculation (approximation)
-  const calculateIslamicDate = () => {
+  const calculateIslamicDate = useCallback(() => {
     const today = new Date()
     
     // Hijri epoch: July 16, 622 CE
@@ -65,9 +65,9 @@ export default function IslamicCalendar() {
       year: Math.floor(islamicYear),
       monthNumber: month
     }
-  }
+  }, [islamicMonths])
 
-  const getUpcomingEvents = (currentMonth: number, currentDay: number, currentYear: number) => {
+  const getUpcomingEvents = useCallback((currentMonth: number, currentDay: number, currentYear: number) => {
     const upcoming = islamicEvents
       .map(event => {
         let eventYear = currentYear
@@ -92,7 +92,7 @@ export default function IslamicCalendar() {
       .slice(0, 3) // Show next 3 events
 
     return upcoming
-  }
+  }, [islamicMonths, islamicEvents])
 
   useEffect(() => {
     const date = calculateIslamicDate()
@@ -102,7 +102,7 @@ export default function IslamicCalendar() {
       const events = getUpcomingEvents(date.monthNumber, date.day, date.year)
       setUpcomingEvents(events)
     }
-  }, [])
+  }, [calculateIslamicDate, getUpcomingEvents])
 
   if (!islamicDate) return null
 
