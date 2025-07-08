@@ -23,6 +23,11 @@ const ScrollProgress: React.FC = () => {
   return (
     <div 
       className="scroll-progress fixed top-0 left-0 h-1 z-50 transition-transform duration-150 ease-out"
+      role="progressbar"
+      aria-label="Page scroll progress"
+      aria-valuenow={Math.round(scrollProgress)}
+      aria-valuemin={0}
+      aria-valuemax={100}
       style={{ 
         width: `${scrollProgress}%`,
         background: 'linear-gradient(90deg, var(--color-primary) 0%, var(--color-gold) 100%)'

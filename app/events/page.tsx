@@ -78,80 +78,88 @@ const getCategoryColor = (category: string) => {
 
 export default function EventsPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50">
-      <div className="container mx-auto px-4 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
+    <main className="min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50 pb-20">
+      <div className="container mx-auto px-4 py-6 md:py-12">
+        <div className="text-center mb-8 md:mb-12">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold gradient-text mb-4 mobile-text-scale">
             Upcoming Events
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mobile-text-scale leading-relaxed">
             Join us for Islamic education, community building, and spiritual growth through our diverse programs.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div className="max-w-4xl mx-auto space-y-4 md:space-y-6">
           {upcomingEvents.map((event) => (
             <div
               key={event.id}
-              className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
+              className="bg-white rounded-lg shadow-lg p-4 md:p-6 hover:shadow-xl transition-shadow duration-300 mobile-card"
             >
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <div className="flex items-center space-x-4 mb-4 md:mb-0">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-primary-600">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 mb-4 md:mb-0">
+                  <div className="text-center sm:text-left mb-3 sm:mb-0">
+                    <div className="text-2xl md:text-3xl font-bold text-primary-600 mobile-text-scale">
                       {new Date(event.date).getDate()}
                     </div>
-                    <div className="text-sm text-gray-500">
+                    <div className="text-sm text-gray-500 mobile-text-scale">
                       {new Date(event.date).toLocaleDateString('en-US', { month: 'short' })}
                     </div>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-800">
+                  <div className="flex-1 text-center sm:text-left">
+                    <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-2 mobile-text-scale">
                       {event.title}
                     </h3>
-                    <div className="flex items-center space-x-4 text-sm text-gray-500 mt-1">
-                      <span>📅 {event.time}</span>
-                      <span>📍 {event.location}</span>
-                      {event.isRecurring && <span>🔄 Recurring</span>}
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-sm text-gray-500 space-y-1 sm:space-y-0 mobile-text-scale">
+                      <span className="flex items-center justify-center sm:justify-start space-x-1">
+                        <span>📅</span>
+                        <span>{event.time}</span>
+                      </span>
+                      <span className="flex items-center justify-center sm:justify-start space-x-1">
+                        <span>📍</span>
+                        <span>{event.location}</span>
+                      </span>
+                      {event.isRecurring && (
+                        <span className="flex items-center justify-center sm:justify-start space-x-1">
+                          <span>🔄</span>
+                          <span>Recurring</span>
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>
-                <span className={`px-3 py-1 rounded-full text-sm font-medium ${getCategoryColor(event.category)}`}>
-                  {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
-                </span>
+                <div className="flex justify-center md:justify-end">
+                  <span className={`px-3 py-2 rounded-full text-sm font-medium ${getCategoryColor(event.category)} mobile-text-scale`}>
+                    {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
+                  </span>
+                </div>
               </div>
               
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed mb-4 mobile-text-scale text-center sm:text-left">
                 {event.description}
               </p>
               
-              <div className="mt-4 flex justify-end">
-                <button className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+              <div className="flex justify-center md:justify-end">
+                <a 
+                  href={`/events/${event.id}`}
+                  className="mobile-button bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg text-sm font-medium transition-colors active:scale-95"
+                >
                   Learn More
-                </button>
+                </a>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <div className="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              Stay Updated
-            </h2>
-            <p className="text-gray-600 mb-6">
-              Subscribe to our newsletter to receive updates about upcoming events and programs.
+        {/* Quick Action - Add to Calendar */}
+        <div className="max-w-4xl mx-auto mt-8 md:mt-12">
+          <div className="bg-primary-50 border border-primary-200 rounded-lg p-4 md:p-6 text-center mobile-card">
+            <h3 className="text-lg md:text-xl font-bold text-primary-800 mb-2 mobile-text-scale">Never Miss an Event</h3>
+            <p className="text-primary-700 mb-4 mobile-text-scale">
+              Subscribe to our calendar to stay updated with all upcoming events and programs.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
-              />
-              <button className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
-                Subscribe
-              </button>
-            </div>
+            <button className="mobile-button bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors active:scale-95">
+              Subscribe to Calendar
+            </button>
           </div>
         </div>
       </div>

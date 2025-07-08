@@ -87,107 +87,145 @@ const ZakatCalculator = () => {
             <h3 className="text-lg font-semibold text-slate-800 border-b pb-2">Assets</h3>
             
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">
+              <label htmlFor="cash-input" className="block text-sm font-medium text-slate-700 mb-1">
                 Cash in Hand & Bank Accounts
               </label>
               <input
+                id="cash-input"
                 type="number"
                 value={cash}
                 onChange={(e) => setCash(e.target.value)}
                 placeholder="0.00"
-                className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                min="0"
+                step="0.01"
+                aria-describedby="cash-help"
+                className="mobile-input w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
               />
+              <div id="cash-help" className="sr-only">Enter the amount of cash you have in hand and bank accounts</div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">
+              <label htmlFor="savings-input" className="block text-sm font-medium text-slate-700 mb-1">
                 Savings & Fixed Deposits
               </label>
               <input
+                id="savings-input"
                 type="number"
                 value={savings}
                 onChange={(e) => setSavings(e.target.value)}
                 placeholder="0.00"
-                className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                min="0"
+                step="0.01"
+                aria-describedby="savings-help"
+                className="mobile-input w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
               />
+              <div id="savings-help" className="sr-only">Enter your savings and fixed deposit amounts</div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">
+              <label htmlFor="investments-input" className="block text-sm font-medium text-slate-700 mb-1">
                 Stocks & Investments
               </label>
               <input
+                id="investments-input"
                 type="number"
                 value={investments}
                 onChange={(e) => setInvestments(e.target.value)}
                 placeholder="0.00"
-                className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                min="0"
+                step="0.01"
+                aria-describedby="investments-help"
+                className="mobile-input w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
               />
+              <div id="investments-help" className="sr-only">Enter the value of your stocks and investments</div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">
+              <label htmlFor="gold-input" className="block text-sm font-medium text-slate-700 mb-1">
                 Gold Value (USD)
               </label>
               <input
+                id="gold-input"
                 type="number"
                 value={gold}
                 onChange={(e) => setGold(e.target.value)}
                 placeholder="0.00"
-                className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                min="0"
+                step="0.01"
+                aria-describedby="gold-help"
+                className="mobile-input w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
               />
+              <div id="gold-help" className="sr-only">Enter the current USD value of your gold</div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">
+              <label htmlFor="silver-input" className="block text-sm font-medium text-slate-700 mb-1">
                 Silver Value (USD)
               </label>
               <input
+                id="silver-input"
                 type="number"
                 value={silver}
                 onChange={(e) => setSilver(e.target.value)}
                 placeholder="0.00"
-                className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                min="0"
+                step="0.01"
+                aria-describedby="silver-help"
+                className="mobile-input w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
               />
+              <div id="silver-help" className="sr-only">Enter the current USD value of your silver</div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">
+              <label htmlFor="business-input" className="block text-sm font-medium text-slate-700 mb-1">
                 Business Assets
               </label>
               <input
+                id="business-input"
                 type="number"
                 value={business}
                 onChange={(e) => setBusiness(e.target.value)}
                 placeholder="0.00"
-                className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                min="0"
+                step="0.01"
+                aria-describedby="business-help"
+                className="mobile-input w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
               />
+              <div id="business-help" className="sr-only">Enter the value of your business assets</div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">
+              <label htmlFor="debts-input" className="block text-sm font-medium text-slate-700 mb-1">
                 Outstanding Debts
               </label>
               <input
+                id="debts-input"
                 type="number"
                 value={debts}
                 onChange={(e) => setDebts(e.target.value)}
                 placeholder="0.00"
-                className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                min="0"
+                step="0.01"
+                aria-describedby="debts-help"
+                className="mobile-input w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
               />
+              <div id="debts-help" className="sr-only">Enter the amount of your outstanding debts</div>
             </div>
           </div>
 
           <div className="flex gap-3">
             <button
               onClick={calculateZakat}
-              className="flex-1 bg-emerald-600 text-white py-3 px-4 rounded-md hover:bg-emerald-700 transition-colors font-semibold"
+              className="mobile-button flex-1 bg-emerald-600 text-white py-3 px-4 rounded-md hover:bg-emerald-700 transition-colors font-semibold"
+              aria-describedby="calculate-help"
             >
               Calculate Zakat
             </button>
+            <div id="calculate-help" className="sr-only">Click to calculate your Zakat obligation based on entered values</div>
             <button
               onClick={resetCalculator}
-              className="px-4 py-3 border border-slate-300 text-slate-700 rounded-md hover:bg-slate-50 transition-colors"
+              className="mobile-button px-4 py-3 border border-slate-300 text-slate-700 rounded-md hover:bg-slate-50 transition-colors"
+              aria-label="Reset all input fields"
             >
               Reset
             </button>
@@ -237,7 +275,11 @@ const ZakatCalculator = () => {
                   <p className="text-sm text-blue-700 mb-3">
                     Pay your Zakat through our secure donation system or contact the masjid directly.
                   </p>
-                  <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors">
+                  <button 
+                    className="mobile-button w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
+                    onClick={() => window.open('/donations', '_blank')}
+                    aria-label="Open donation page to pay Zakat"
+                  >
                     Pay Zakat Now
                   </button>
                 </div>

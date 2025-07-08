@@ -1,9 +1,6 @@
-import { Metadata } from 'next'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'Gallery - Sultanpur Al-Falah Islamic Center',
-  description: 'Photos from our community events, celebrations, and facilities at Sultanpur Al-Falah Islamic Center',
-}
+import { useState } from 'react'
 
 interface GalleryItem {
   id: number
@@ -100,70 +97,93 @@ const galleryItems: GalleryItem[] = [
 const categories = ['All', 'Construction', 'Ramadan', 'Eid', 'Children', 'Community']
 
 export default function GalleryPage() {
+  const [selectedCategory, setSelectedCategory] = useState('All')
+  
+  // Filter gallery items based on selected category
+  const filteredItems = selectedCategory === 'All' 
+    ? galleryItems 
+    : galleryItems.filter(item => item.category === selectedCategory)
+
   return (
-    <main className="min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50">
-      <div className="container mx-auto px-4 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
+    <main className="min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50 pb-20">
+      <div className="container mx-auto px-4 py-6 md:py-12">
+        <div className="text-center mb-8 md:mb-12">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold gradient-text mb-4 mobile-text-scale">
             Photo Gallery
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mobile-text-scale leading-relaxed">
             Explore moments from our community life, celebrations, educational programs, and beautiful masjid facilities.
           </p>
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-8">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-6 md:mb-8 px-2">
           {categories.map((category) => (
             <button
               key={category}
-              className="px-4 py-2 bg-white hover:bg-primary-50 border border-gray-200 hover:border-primary-300 rounded-lg font-medium text-gray-700 hover:text-primary-700 transition-colors"
+              onClick={() => setSelectedCategory(category)}
+              className={`mobile-button px-3 md:px-4 py-2 md:py-3 border rounded-lg font-medium transition-colors text-sm md:text-base active:scale-95 ${
+                selectedCategory === category
+                  ? 'bg-primary-600 text-white border-primary-600'
+                  : 'bg-white hover:bg-primary-50 border-gray-200 hover:border-primary-300 text-gray-700 hover:text-primary-700'
+              }`}
             >
               {category}
             </button>
           ))}
         </div>
 
+        {/* Results Count */}
+        <div className="text-center mb-4 md:mb-6">
+          <p className="text-gray-600 mobile-text-scale">
+            Showing {filteredItems.length} {filteredItems.length === 1 ? 'photo' : 'photos'}
+            {selectedCategory !== 'All' && ` in ${selectedCategory}`}
+          </p>
+        </div>
+
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
-          {galleryItems.map((item) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto mb-8 md:mb-12">
+          {filteredItems.map((item) => (
             <div
               key={item.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group"
+              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group mobile-card"
             >
               <div className="relative overflow-hidden">
-                <div className="w-full h-64 bg-gradient-to-br from-primary-200 to-secondary-200 flex items-center justify-center">
+                <div className="w-full h-48 md:h-64 bg-gradient-to-br from-primary-200 to-secondary-200 flex items-center justify-center">
                   <div className="text-center text-primary-700">
-                    <div className="text-4xl mb-2">📷</div>
-                    <p className="text-sm">Image Placeholder</p>
+                    <div className="text-3xl md:text-4xl mb-2">📷</div>
+                    <p className="text-xs md:text-sm mobile-text-scale">Image Placeholder</p>
                   </div>
                 </div>
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity duration-300"></div>
-                <div className="absolute top-4 right-4">
-                  <span className="bg-white bg-opacity-90 text-primary-700 px-2 py-1 rounded-full text-xs font-medium">
+                <div className="absolute top-2 md:top-4 right-2 md:right-4">
+                  <span className="bg-white bg-opacity-90 text-primary-700 px-2 py-1 rounded-full text-xs font-medium mobile-text-scale">
                     {item.category}
                   </span>
                 </div>
               </div>
               
-              <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+              <div className="p-4 md:p-6">
+                <h3 className="text-base md:text-lg font-semibold text-gray-800 mb-2 mobile-text-scale">
                   {item.title}
                 </h3>
-                <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                <p className="text-gray-600 text-sm mb-3 line-clamp-2 mobile-text-scale">
                   {item.description}
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500">
+                  <span className="text-xs text-gray-500 mobile-text-scale">
                     {new Date(item.date).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',
                       day: 'numeric'
                     })}
                   </span>
-                  <button className="text-primary-600 hover:text-primary-700 text-sm font-medium">
+                  <a 
+                    href={`/gallery/${item.id}`}
+                    className="text-primary-600 hover:text-primary-700 text-sm font-medium mobile-touch-target mobile-text-scale"
+                  >
                     View →
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -171,63 +191,37 @@ export default function GalleryPage() {
         </div>
 
         {/* Featured Sections */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+          <div className="bg-white rounded-lg shadow-lg p-4 md:p-6 mobile-card">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-3 md:mb-4 mobile-text-scale">
               Share Your Photos
             </h2>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-600 mb-4 mobile-text-scale">
               Have photos from our events? We&apos;d love to feature them in our gallery. 
               Share your memories with the community!
             </p>
-            <button className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+            <a 
+              href="/contact"
+              className="mobile-button bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors active:scale-95"
+            >
               Submit Photos
-            </button>
+            </a>
           </div>
 
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+          <div className="bg-white rounded-lg shadow-lg p-4 md:p-6 mobile-card">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-3 md:mb-4 mobile-text-scale">
               Event Photography
             </h2>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-600 mb-4 mobile-text-scale">
               Interested in becoming our volunteer photographer? Help us capture 
               and preserve our community&apos;s precious moments.
             </p>
-            <button className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+            <a 
+              href="/contact"
+              className="mobile-button bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors active:scale-95"
+            >
               Join Our Team
-            </button>
-          </div>
-        </div>
-
-        {/* Recent Highlights */}
-        <div className="mt-12 max-w-4xl mx-auto">
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-              Recent Highlights
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-              <div>
-                <div className="text-3xl mb-3">🎉</div>
-                <h3 className="font-semibold text-gray-800 mb-2">Community Events</h3>
-                <p className="text-gray-600 text-sm">
-                  Monthly celebrations bringing our community together in faith and fellowship.
-                </p>
-              </div>
-              <div>
-                <div className="text-3xl mb-3">📚</div>
-                <h3 className="font-semibold text-gray-800 mb-2">Educational Programs</h3>
-                <p className="text-gray-600 text-sm">
-                  Islamic education classes for all ages, from Quran memorization to Arabic studies.
-                </p>
-              </div>
-              <div>
-                <div className="text-3xl mb-3">🤝</div>
-                <h3 className="font-semibold text-gray-800 mb-2">Community Service</h3>
-                <p className="text-gray-600 text-sm">
-                  Giving back to our broader community through various charitable initiatives.
-                </p>
-              </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>

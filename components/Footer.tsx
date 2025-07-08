@@ -14,7 +14,7 @@ export default function Footer() {
               A place of worship, community, and spiritual growth serving the Muslim community in Dhaka, Bangladesh.
             </p>
             <p className="text-xs text-primary-200 font-medium tracking-wider">
-              Established 1995 • Serving the Ummah for over 25 years
+              Established 2000 • Serving the Ummah for over 25 years
             </p>
           </div>
 

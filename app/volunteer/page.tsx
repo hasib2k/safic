@@ -137,7 +137,7 @@ export default function VolunteerPage() {
             </div>
 
             <div className="card-spiritual text-center">
-              <div className="text-4xl mb-4 text-primary-600">❤️</div>
+              <div className="text-4xl mb-4 text-primary-600">🤝</div>
               <h3 className="font-heading text-xl font-semibold mb-3 text-gray-800">Community Impact</h3>
               <p className="text-gray-600 leading-relaxed">
                 Make a tangible difference in the lives of community members and strengthen our Islamic bonds.

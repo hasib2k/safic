@@ -1,97 +1,80 @@
 {
   "pages": {
-    "/_not-found/page": [
-      "static/chunks/webpack-ae7f8552ea7f451c.js",
-      "static/chunks/fd9d1056-cf48984c1108c87a.js",
-      "static/chunks/117-fe55aa3eaa1fe9a6.js",
-      "static/chunks/main-app-8950c83598274148.js",
-      "static/chunks/app/_not-found/page-29569d72a77dd479.js"
+    "/prayer-times/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/prayer-times/page.js"
     ],
     "/layout": [
-      "static/chunks/webpack-ae7f8552ea7f451c.js",
-      "static/chunks/fd9d1056-cf48984c1108c87a.js",
-      "static/chunks/117-fe55aa3eaa1fe9a6.js",
-      "static/chunks/main-app-8950c83598274148.js",
-      "static/css/a0c906739a65188f.css",
-      "static/chunks/161-675b70f0669d26aa.js",
-      "static/chunks/app/layout-4aca7f75cfdb7d03.js"
-    ],
-    "/page": [
-      "static/chunks/webpack-ae7f8552ea7f451c.js",
-      "static/chunks/fd9d1056-cf48984c1108c87a.js",
-      "static/chunks/117-fe55aa3eaa1fe9a6.js",
-      "static/chunks/main-app-8950c83598274148.js",
-      "static/chunks/app/page-92fa775d96ec7f73.js"
-    ],
-    "/blog/page": [
-      "static/chunks/webpack-ae7f8552ea7f451c.js",
-      "static/chunks/fd9d1056-cf48984c1108c87a.js",
-      "static/chunks/117-fe55aa3eaa1fe9a6.js",
-      "static/chunks/main-app-8950c83598274148.js",
-      "static/chunks/app/blog/page-7501ef983451739b.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
     ],
     "/about/page": [
-      "static/chunks/webpack-ae7f8552ea7f451c.js",
-      "static/chunks/fd9d1056-cf48984c1108c87a.js",
-      "static/chunks/117-fe55aa3eaa1fe9a6.js",
-      "static/chunks/main-app-8950c83598274148.js",
-      "static/chunks/app/about/page-9cc5ca5459893d58.js"
-    ],
-    "/contact/page": [
-      "static/chunks/webpack-ae7f8552ea7f451c.js",
-      "static/chunks/fd9d1056-cf48984c1108c87a.js",
-      "static/chunks/117-fe55aa3eaa1fe9a6.js",
-      "static/chunks/main-app-8950c83598274148.js",
-      "static/chunks/app/contact/page-0be218f385267c04.js"
-    ],
-    "/dashboard/page": [
-      "static/chunks/webpack-ae7f8552ea7f451c.js",
-      "static/chunks/fd9d1056-cf48984c1108c87a.js",
-      "static/chunks/117-fe55aa3eaa1fe9a6.js",
-      "static/chunks/main-app-8950c83598274148.js",
-      "static/chunks/app/dashboard/page-e3088a2c3fc7d884.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/about/page.js"
     ],
     "/events/page": [
-      "static/chunks/webpack-ae7f8552ea7f451c.js",
-      "static/chunks/fd9d1056-cf48984c1108c87a.js",
-      "static/chunks/117-fe55aa3eaa1fe9a6.js",
-      "static/chunks/main-app-8950c83598274148.js",
-      "static/chunks/app/events/page-f50b265a553084bb.js"
-    ],
-    "/donations/page": [
-      "static/chunks/webpack-ae7f8552ea7f451c.js",
-      "static/chunks/fd9d1056-cf48984c1108c87a.js",
-      "static/chunks/117-fe55aa3eaa1fe9a6.js",
-      "static/chunks/main-app-8950c83598274148.js",
-      "static/chunks/app/donations/page-dab9db7a5da33194.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/events/page.js"
     ],
     "/gallery/page": [
-      "static/chunks/webpack-ae7f8552ea7f451c.js",
-      "static/chunks/fd9d1056-cf48984c1108c87a.js",
-      "static/chunks/117-fe55aa3eaa1fe9a6.js",
-      "static/chunks/main-app-8950c83598274148.js",
-      "static/chunks/app/gallery/page-8b3c5ff484717de0.js"
-    ],
-    "/prayer-times/page": [
-      "static/chunks/webpack-ae7f8552ea7f451c.js",
-      "static/chunks/fd9d1056-cf48984c1108c87a.js",
-      "static/chunks/117-fe55aa3eaa1fe9a6.js",
-      "static/chunks/main-app-8950c83598274148.js",
-      "static/chunks/app/prayer-times/page-a2b3c609eda17631.js"
-    ],
-    "/volunteer/page": [
-      "static/chunks/webpack-ae7f8552ea7f451c.js",
-      "static/chunks/fd9d1056-cf48984c1108c87a.js",
-      "static/chunks/117-fe55aa3eaa1fe9a6.js",
-      "static/chunks/main-app-8950c83598274148.js",
-      "static/chunks/app/volunteer/page-41619c573fcd7c3a.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/gallery/page.js"
     ],
     "/features/page": [
-      "static/chunks/webpack-ae7f8552ea7f451c.js",
-      "static/chunks/fd9d1056-cf48984c1108c87a.js",
-      "static/chunks/117-fe55aa3eaa1fe9a6.js",
-      "static/chunks/main-app-8950c83598274148.js",
-      "static/chunks/app/features/page-d0798dcf475c738d.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/features/page.js"
+    ],
+    "/zakat-calculator/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/zakat-calculator/page.js"
+    ],
+    "/dashboard/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/dashboard/page.js"
+    ],
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
+    ],
+    "/blog/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/blog/page.js"
+    ],
+    "/contact/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/contact/page.js"
+    ],
+    "/donations/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/donations/page.js"
+    ],
+    "/building-expansion/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/building-expansion/page.js"
+    ],
+    "/prayer-times/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/prayer-times/layout.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

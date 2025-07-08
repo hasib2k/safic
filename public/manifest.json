@@ -1,0 +1,45 @@
+{
+  "name": "Sultanpur Al-Falah Islamic Center",
+  "short_name": "SAFIC Mosque",
+  "description": "A place of worship, community, and spiritual growth serving the Muslim community in Dhaka",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1B5E20",
+  "theme_color": "#1B5E20",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["lifestyle", "social"],
+  "lang": "en",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Prayer Times",
+      "short_name": "Prayers",
+      "description": "View today's prayer times",
+      "url": "/prayer-times",
+      "icons": [{ "src": "/favicon.ico", "sizes": "16x16 32x32" }]
+    },
+    {
+      "name": "Donate",
+      "short_name": "Donate", 
+      "description": "Support our mosque",
+      "url": "/donations",
+      "icons": [{ "src": "/favicon.ico", "sizes": "16x16 32x32" }]
+    },
+    {
+      "name": "Events",
+      "short_name": "Events",
+      "description": "View upcoming events",
+      "url": "/events", 
+      "icons": [{ "src": "/favicon.ico", "sizes": "16x16 32x32" }]
+    }
+  ]
+}
