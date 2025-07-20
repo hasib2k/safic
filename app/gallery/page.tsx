@@ -18,7 +18,7 @@ const galleryItems: GalleryItem[] = [
     description: 'Our community came together to celebrate Eid with prayers, food, and festivities.',
     category: 'Eid',
     date: '2025-04-21',
-    imageUrl: '/api/placeholder/400/300'
+    imageUrl: '/axp-photography-d9jqXn9vvAk-unsplash.jpg'
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const galleryItems: GalleryItem[] = [
     description: 'Beautiful interior of our main prayer hall during Friday congregational prayer.',
     category: 'Construction',
     date: '2025-03-15',
-    imageUrl: '/api/placeholder/400/300'
+    imageUrl: '/dovlet-hojayev-mrsxNu1molw-unsplash.jpg'
   },
   {
     id: 3,
@@ -34,7 +34,7 @@ const galleryItems: GalleryItem[] = [
     description: 'Young participants receiving awards at our annual Quran memorization competition.',
     category: 'Children',
     date: '2025-06-10',
-    imageUrl: '/api/placeholder/400/300'
+    imageUrl: '/mike-yukhtenko-MDzJF3o8Ajk-unsplash.jpg'
   },
   {
     id: 4,
@@ -42,7 +42,7 @@ const galleryItems: GalleryItem[] = [
     description: 'Monthly community iftar bringing families together during Ramadan.',
     category: 'Ramadan',
     date: '2025-03-28',
-    imageUrl: '/api/placeholder/400/300'
+    imageUrl: '/shery-arturova-DSkhHXdi9Dk-unsplash.jpg'
   },
   {
     id: 5,
@@ -50,7 +50,7 @@ const galleryItems: GalleryItem[] = [
     description: 'Students engaged in learning Arabic and Islamic studies in our education center.',
     category: 'Children',
     date: '2025-05-15',
-    imageUrl: '/api/placeholder/400/300'
+    imageUrl: '/masjid-hero.jpg'
   },
   {
     id: 6,
@@ -58,7 +58,7 @@ const galleryItems: GalleryItem[] = [
     description: 'Volunteers organizing donations for our monthly food bank distribution.',
     category: 'Community',
     date: '2025-06-20',
-    imageUrl: '/api/placeholder/400/300'
+    imageUrl: '/masjid-hero1.jpg'
   },
   {
     id: 7,
@@ -66,7 +66,7 @@ const galleryItems: GalleryItem[] = [
     description: 'Tarawih prayers during the blessed month of Ramadan with full congregation.',
     category: 'Ramadan',
     date: '2025-03-20',
-    imageUrl: '/api/placeholder/400/300'
+    imageUrl: '/masjid-hero.jpg'
   },
   {
     id: 8,
@@ -74,7 +74,7 @@ const galleryItems: GalleryItem[] = [
     description: 'Beautiful calligraphy and geometric patterns adorning our masjid walls.',
     category: 'Construction',
     date: '2025-02-10',
-    imageUrl: '/api/placeholder/400/300'
+    imageUrl: '/axp-photography-d9jqXn9vvAk-unsplash.jpg'
   },
   {
     id: 9,
@@ -82,7 +82,7 @@ const galleryItems: GalleryItem[] = [
     description: 'Community gathering for Eid ul-Adha with shared meals and celebration.',
     category: 'Eid',
     date: '2025-06-28',
-    imageUrl: '/api/placeholder/400/300'
+    imageUrl: '/dovlet-hojayev-mrsxNu1molw-unsplash.jpg'
   },
   {
     id: 10,
@@ -90,7 +90,7 @@ const galleryItems: GalleryItem[] = [
     description: 'Young children enjoying Islamic books in our dedicated reading area.',
     category: 'Children',
     date: '2025-05-25',
-    imageUrl: '/api/placeholder/400/300'
+    imageUrl: '/mike-yukhtenko-MDzJF3o8Ajk-unsplash.jpg'
   }
 ]
 
@@ -149,12 +149,11 @@ export default function GalleryPage() {
               className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group mobile-card"
             >
               <div className="relative overflow-hidden">
-                <div className="w-full h-48 md:h-64 bg-gradient-to-br from-primary-200 to-secondary-200 flex items-center justify-center">
-                  <div className="text-center text-primary-700">
-                    <div className="text-3xl md:text-4xl mb-2">📷</div>
-                    <p className="text-xs md:text-sm mobile-text-scale">Image Placeholder</p>
-                  </div>
-                </div>
+                <img
+                  src={item.imageUrl}
+                  alt={item.title}
+                  className="w-full h-48 md:h-64 object-cover object-center"
+                />
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity duration-300"></div>
                 <div className="absolute top-2 md:top-4 right-2 md:right-4">
                   <span className="bg-white bg-opacity-90 text-primary-700 px-2 py-1 rounded-full text-xs font-medium mobile-text-scale">
@@ -201,7 +200,7 @@ export default function GalleryPage() {
               Share your memories with the community!
             </p>
             <a 
-              href="/contact"
+              href="mailto:info@safic.org?subject=Photo Submission&body=I would like to submit photos for the gallery."
               className="mobile-button bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors active:scale-95"
             >
               Submit Photos

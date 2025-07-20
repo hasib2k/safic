@@ -1,4 +1,4 @@
-// File: C:\Users\Hasib Ahmed\Desktop\safic\app\prayer-times\layout.tsx
+// File: C:\Users\hasib\OneDrive\Desktop\safic\app\prayer-times\layout.tsx
 import * as entry from '../../../../app/prayer-times/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

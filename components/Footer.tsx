@@ -11,7 +11,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-2 font-playfair tracking-wide">Sultanpur Al-Falah Islamic Center</h3>
             <p className="text-primary-100 mb-2 leading-relaxed text-sm font-light">
-              A place of worship, community, and spiritual growth serving the Muslim community in Dhaka, Bangladesh.
+              A place of worship, community, and spiritual growth serving the Muslim community in Rangpur, Bangladesh.
             </p>
             <p className="text-xs text-primary-200 font-medium tracking-wider">
               Established 2000 • Serving the Ummah for over 25 years

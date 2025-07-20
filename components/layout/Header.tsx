@@ -34,7 +34,7 @@ const Header: React.FC = () => {
 
   const isActiveLink = (href: string) => {
     if (href === '/') return pathname === '/'
-    return pathname.startsWith(href)
+    return pathname ? pathname.startsWith(href) : false
   }
 
   return (
@@ -51,8 +51,8 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-16 py-2">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 flex-shrink-0 group touch-target ml-4">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-105">
-              <div className="text-white font-bold text-lg">🕌</div>
+            <div className="w-12 h-12 flex items-center justify-center">
+              <img src="/safic-logo.png" alt="SAFIC Logo" className="w-full h-full object-contain" />
             </div>
             <div className="hidden sm:block">
               <h1 className="text-lg font-bold text-white font-playfair tracking-wide group-hover:text-primary-100 transition-colors duration-300">SAFIC</h1>
@@ -79,6 +79,15 @@ const Header: React.FC = () => {
 
           {/* Mobile/Tablet Navigation and Actions */}
           <div className="flex items-center space-x-2">
+            {/* Donate Button - Always Visible */}
+            <Link 
+              href="/donations" 
+              className="bg-gradient-to-r from-secondary-600 to-secondary-700 hover:from-secondary-700 hover:to-secondary-800 text-white px-3 py-2 rounded-md transition-all duration-300 flex items-center gap-2 font-semibold text-sm shadow-md hover:shadow-lg hover:scale-105 ring-1 ring-secondary-400/30 touch-target haptic-light mr-20"
+            >
+              <Heart size={16} className="animate-pulse" />
+              <span className="hidden sm:inline">Donate</span>
+            </Link>
+
             {/* Emergency Call Button - Mobile Priority */}
             <a 
               href="tel:+8801706776711"
@@ -87,15 +96,6 @@ const Header: React.FC = () => {
             >
               <Phone size={18} />
             </a>
-            
-            {/* Donate Button - Always Visible */}
-            <Link 
-              href="/donations" 
-              className="bg-gradient-to-r from-secondary-600 to-secondary-700 hover:from-secondary-700 hover:to-secondary-800 text-white px-4 py-2 rounded-md transition-all duration-300 flex items-center gap-2 font-semibold text-sm shadow-md hover:shadow-lg hover:scale-105 ring-1 ring-secondary-400/30 touch-target haptic-light mr-16"
-            >
-              <Heart size={16} className="animate-pulse" />
-              <span className="hidden sm:inline">Donate</span>
-            </Link>
 
             {/* Mobile Menu Button */}
             <button

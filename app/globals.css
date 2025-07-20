@@ -100,6 +100,43 @@ body {
   max-width: 180px;
 }
 
+/* Card for mobile donation and info sections */
+.card-mobile {
+  border-radius: 16px;
+  box-shadow: 0 2px 16px 0 rgba(27, 94, 32, 0.08), 0 1.5px 4px 0 rgba(0,0,0,0.04);
+  border: 2px solid #e5e7eb;
+  background: #fff;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.card-mobile:hover, .card-mobile:focus {
+  box-shadow: 0 4px 24px 0 rgba(27, 94, 32, 0.16), 0 2px 8px 0 rgba(0,0,0,0.08);
+  border-color: var(--color-primary-light);
+}
+
+@media (min-width: 768px) {
+  .card-mobile {
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Ensure modal action buttons are equal width */
+.modal-mobile .btn-mobile {
+  width: 100%;
+  min-width: 0;
+  display: inline-block;
+}
+
+.modal-mobile .flex-col .btn-mobile,
+.modal-mobile .flex-row .btn-mobile {
+  flex: 1 1 0%;
+  width: 100%;
+  min-width: 0;
+}
+
 /* Prayer Times Grid */
 .prayer-grid {
   display: flex;
@@ -150,11 +187,22 @@ body {
 
 /* Hero Section */
 .hero-section {
-  background: linear-gradient(135deg, #1B5E20 0%, #065F46 100%);
+  background: url('/masjid-hero.jpg') center center/cover no-repeat;
   color: white;
   padding: 4rem 0;
   text-align: center;
   position: relative;
+}
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+.hero-section > * {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-title {
@@ -1106,17 +1154,64 @@ body {
 
 /* Mobile modal optimizations */
 .modal-mobile {
-  margin: 16px;
-  max-height: calc(100vh - 32px);
-  border-radius: 12px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(27, 94, 32, 0.12), 0 2px 8px rgba(0,0,0,0.08);
+  padding: 2rem 1.5rem;
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  max-height: 90vh;
+  overscroll-behavior: contain;
+}
+
+.modal-mobile .mobile-padding {
+  padding: 1rem 0 1.5rem 0;
+}
+
+.modal-mobile h3, .modal-mobile h4, .modal-mobile h5 {
+  margin-bottom: 1rem;
+}
+
+.modal-mobile input, .modal-mobile select {
+  margin-bottom: 1rem;
+}
+
+.modal-mobile .grid {
+  gap: 1rem;
+}
+
+.modal-mobile .payment-method-mobile {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modal-mobile .payment-method-mobile.selected {
+  border-color: var(--color-primary-light);
+  background: rgba(27,94,32,0.07);
+}
+
+.modal-mobile .btn-mobile {
+  width: 100%;
+  min-width: 0;
+  display: inline-block;
+}
+
+.modal-mobile .flex-col .btn-mobile,
+.modal-mobile .flex-row .btn-mobile {
+  flex: 1 1 0%;
+  width: 100%;
+  min-width: 0;
 }
 
 @media (max-width: 640px) {
   .modal-mobile {
-    margin: 8px;
-    max-height: calc(100vh - 16px);
+    max-height: 98vh;
+    padding: 1rem 0.5rem;
   }
 }
 

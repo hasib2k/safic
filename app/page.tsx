@@ -61,7 +61,7 @@ export default function Home() {
             Sultanpur Al-Falah Islamic Center
           </h1>
           <p className="hero-subtitle text-mobile-lg md:text-xl leading-relaxed">
-            A place of worship, community, and spiritual growth serving the Muslim community in Dhaka, Bangladesh. 
+            A place of worship, community, and spiritual growth serving the Muslim community in Rangpur, Bangladesh. 
             Join us in our journey of faith and service to Allah (SWT).
           </p>
           <div className="mt-6 md:mt-8">

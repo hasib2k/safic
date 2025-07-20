@@ -51,14 +51,10 @@ export default function DonationsPage() {
     address: ''
   })
 
+  // Only SSLCommerz as payment method
   const paymentMethods = [
-    { id: 'bkash', name: 'Bkash', icon: '', color: 'bg-pink-600', account: '+8801706776711' },
-    { id: 'nagad', name: 'Nagad', icon: '', color: 'bg-orange-600', account: '+8801706776711' },
-    { id: 'rocket', name: 'Rocket', icon: '', color: 'bg-purple-600', account: '+8801706776711' },
-    { id: 'upay', name: 'Upay', icon: '', color: 'bg-blue-600', account: '+8801706776711' },
-    { id: 'bank', name: 'Bank Transfer', icon: '', color: 'bg-green-600', account: 'ACC: 1234567890' },
-    { id: 'card', name: 'Credit/Debit Card', icon: '', color: 'bg-gray-600', account: 'Auto Payment' }
-  ]
+    { id: 'sslcommerz', name: 'SSLCommerz (Card, Mobile, Bank)', icon: '', color: 'bg-blue-600', account: 'Secure Gateway' }
+  ];
 
   const handleAmountSelect = (amount: number) => {
     setSelectedAmount(amount)
@@ -106,6 +102,16 @@ export default function DonationsPage() {
     }
   }
 
+  // Store info for reassurance
+  const storeInfo = {
+    name: 'testsultavwyb',
+    contactName: 'Hasib Ahmed',
+    address: 'Sultanpur, Mithapukur, Rangpur, Bangladesh',
+    email: 'hasib22258@gmail.com',
+    mobile: '+8801706776711',
+    homepage: 'https://safic.vercel.app'
+  };
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50 safe-area-inset-bottom">
       <div className="container-mobile py-6 md:py-12">
@@ -121,101 +127,55 @@ export default function DonationsPage() {
               &quot;The example of those who spend their wealth in the way of Allah is like a seed which grows seven spikes&quot; - Quran 2:261
             </span>
           </div>
+          {/* Store Info Card */}
+          <div className="mt-8 mx-auto max-w-lg">
+            <div className="bg-primary-50 border border-primary-200 rounded-lg p-4 text-left shadow-sm">
+              <div className="font-bold text-primary-700 text-lg mb-2">Official Donation Portal</div>
+              <div className="text-gray-700 mb-1"><span className="font-semibold">Masjid/Org:</span> {storeInfo.name}</div>
+              <div className="text-gray-700 mb-1"><span className="font-semibold">Contact:</span> {storeInfo.contactName}</div>
+              <div className="text-gray-700 mb-1"><span className="font-semibold">Address:</span> {storeInfo.address}</div>
+              <div className="text-gray-700 mb-1"><span className="font-semibold">Email:</span> <a href={`mailto:${storeInfo.email}`} className="text-primary-600 underline">{storeInfo.email}</a></div>
+              <div className="text-gray-700 mb-1"><span className="font-semibold">Mobile:</span> <a href={`tel:${storeInfo.mobile}`} className="text-primary-600 underline">{storeInfo.mobile}</a></div>
+              <div className="text-gray-700"><span className="font-semibold">Website:</span> <a href={storeInfo.homepage} target="_blank" rel="noopener" className="text-primary-600 underline">{storeInfo.homepage}</a></div>
+            </div>
+          </div>
         </div>
 
         <div className="flex justify-center mb-8 md:mb-12">
-          {donationCategories.map((category) => (
-            <div
-              key={category.id}
-              className="card-mobile bg-white max-w-lg w-full"
-            >
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-semibold text-gray-800">
-                  {category.name}
-                </h3>
-                <span className={`px-3 py-1 rounded-full text-xs font-medium ${getUrgencyColor(category.urgency)}`}>
-                  {category.urgency.toUpperCase()} PRIORITY
-                </span>
-              </div>
-              
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                {category.description}
-              </p>
-              
-              <div className="mb-4">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm text-gray-500">Progress</span>
-                  <span className="text-sm font-medium text-gray-700">
-                    ${category.raised.toLocaleString()} / ${category.target.toLocaleString()}
-                  </span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-3">
-                  <div
-                    className="bg-gradient-to-r from-primary-500 to-primary-600 h-3 rounded-full transition-all duration-300"
-                    style={{ width: `${getProgressPercentage(category.raised, category.target)}%` }}
-                  ></div>
-                </div>
-                <div className="text-right mt-1">
-                  <span className="text-sm text-primary-600 font-medium">
-                    {getProgressPercentage(category.raised, category.target).toFixed(1)}% Complete
-                  </span>
-                </div>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
-                <button 
-                  onClick={() => handleDonateNow(category.id)}
-                  className="flex-1 btn-mobile bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-colors haptic-light"
-                >
-                  Donate Now
-                </button>
-                <Link 
-                  href="/building-expansion"
-                  className="btn-mobile px-4 py-2 border-2 border-primary-600 text-primary-600 hover:bg-primary-50 rounded-lg font-medium transition-colors text-center haptic-light"
-                >
-                  Learn More
-                </Link>
-              </div>
-            </div>
-          ))}
+          {/* Removed Building Expansion section as requested */}
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="card-mobile bg-white mb-8">
-            <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-6 text-center">
-              Quick Donation
-            </h2>
-            
-            <div className="amount-grid-mobile mb-6">
+          <div className="card-mobile bg-white mb-8 p-4 md:p-8 rounded-lg shadow-lg flex flex-col items-center w-full">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-6 text-center">Quick Donation</h2>
+            <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
               {[25, 50, 100, 250].map((amount) => (
                 <button
                   key={amount}
                   onClick={() => handleAmountSelect(amount)}
-                  className={`btn-mobile p-4 border-2 rounded-lg text-center transition-colors haptic-light ${
+                  className={`btn-mobile p-4 border-2 rounded-lg text-center font-bold transition-colors haptic-light w-full ${
                     selectedAmount === amount
-                      ? 'border-primary-500 bg-primary-50 text-primary-700'
+                      ? 'border-primary-500 bg-primary-50 text-primary-700 scale-105 shadow-md'
                       : 'border-gray-200 hover:border-primary-500 hover:bg-primary-50'
                   }`}
                 >
-                  <div className="text-lg font-bold">${amount}</div>
+                  ${amount}
                 </button>
               ))}
             </div>
-            
-            <div className="flex flex-col space-y-4 mb-6">
+            <div className="w-full flex flex-col sm:flex-row gap-4 mb-6">
               <input
                 type="number"
+                min="1"
                 placeholder="Custom amount"
                 value={customAmount}
                 onChange={(e) => handleCustomAmountChange(e.target.value)}
-                className={`input-mobile flex-1 ${
-                  customAmount ? 'border-primary-500 bg-primary-50' : 'border-gray-300'
-                }`}
+                className={`input-mobile flex-1 min-w-0 ${customAmount ? 'border-primary-500 bg-primary-50' : 'border-gray-300'}`}
               />
-              <select 
+              <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="input-mobile border-gray-300 focus:border-primary-500"
+                className="input-mobile flex-1 min-w-0 border-gray-300 focus:border-primary-500"
               >
                 <option value="">Select Category</option>
                 {donationCategories.map((cat) => (
@@ -223,21 +183,22 @@ export default function DonationsPage() {
                 ))}
               </select>
             </div>
-            
-            <button 
-              onClick={() => setShowPaymentModal(true)}
-              disabled={getCurrentAmount() <= 0}
-              className={`btn-mobile w-full text-lg haptic-light ${
-                getCurrentAmount() > 0
-                  ? 'bg-primary-600 hover:bg-primary-700 text-white'
-                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-              }`}
-            >
-              Proceed to Payment - ${getCurrentAmount() > 0 ? getCurrentAmount() : '0'}
-            </button>
-            
-            <div className="mt-4 text-center text-sm text-gray-500">
-              🔒 Secure payment processing • Tax-deductible receipts provided
+            <div className="w-full flex flex-col items-center">
+              <button
+                onClick={() => {
+                  setShowAmountSelection(true);
+                }}
+                className={`btn-mobile w-full text-lg haptic-light bg-primary-600 hover:bg-primary-700 text-white transition-all duration-300 rounded-lg font-semibold py-3 shadow-md ${getCurrentAmount() > 0 ? '' : 'opacity-60 cursor-not-allowed'}`}
+                disabled={getCurrentAmount() <= 0}
+              >
+                Proceed to Payment - ${getCurrentAmount() > 0 ? getCurrentAmount() : '0'}
+              </button>
+              <div className="mt-4 text-center text-sm text-gray-500 w-full">
+                <span className="inline-flex items-center gap-2">
+                  <span role="img" aria-label="lock">🔒</span>
+                  Secure payment processing • Tax-deductible receipts provided
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -404,55 +365,35 @@ export default function DonationsPage() {
 
                 {/* Payment Methods */}
                 <div className="mb-8">
-                  <h4 className="text-lg font-bold text-gray-800 mb-4">
-                    <span className="font-arabic text-xl block mb-1">طريقة الدفع</span>
-                    Payment Method
-                  </h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {paymentMethods.map((method) => (
-                      <div
-                        key={method.id}
-                        onClick={() => setPaymentMethod(method.id)}
-                        className={`payment-method-mobile haptic-light ${
-                          paymentMethod === method.id
-                            ? 'selected border-primary-500 bg-primary-50'
-                            : 'border-gray-200 hover:border-primary-300 hover:bg-gray-50'
-                        }`}
-                      >
-                        <div className="flex items-center space-x-3">
-                          <PaymentIcon method={method.id} className="w-12 h-12" />
-                          <div className="flex-1">
-                            <div className="font-bold text-gray-800">{method.name}</div>
-                            <div className="text-sm text-gray-600">{method.account}</div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
+                <h4 className="text-lg font-bold text-gray-800 mb-4">
+                  <span className="font-arabic text-xl block mb-1">طريقة الدفع</span>
+                  Payment Method
+                </h4>
+                <div className="payment-method-mobile selected border-primary-500 bg-primary-50 flex items-center space-x-3 mb-4">
+                  <PaymentIcon method="sslcommerz" className="w-12 h-12" />
+                  <div className="flex-1">
+                    <div className="font-bold text-gray-800">SSLCommerz (Card, Mobile, Bank)</div>
+                    <div className="text-sm text-gray-600">Secure Gateway</div>
                   </div>
+                </div>
                 </div>
 
                 {/* Payment Instructions */}
-                {paymentMethod && paymentMethod !== 'card' && (
-                  <div className="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-                    <h5 className="font-bold text-yellow-800 mb-2">Manual Payment Instructions:</h5>
-                    <ol className="text-sm text-yellow-700 space-y-1">
-                      <li>1. Send <strong>${getCurrentAmount()}</strong> to the {paymentMethods.find(p => p.id === paymentMethod)?.name} account above</li>
-                      <li>2. Use reference: <strong>DONATION-{Date.now()}</strong></li>
-                      <li>3. Screenshot the transaction</li>
-                      <li>4. Click "Confirm Payment" below</li>
-                      <li>5. We will verify and send you a receipt within 24 hours</li>
-                    </ol>
+                <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                  <h5 className="font-bold text-blue-800 mb-2">Secure Payment Gateway:</h5>
+                  <p className="text-sm text-blue-700">
+                    You will be redirected to SSLCommerz to complete your donation securely with card, mobile wallet, or bank transfer.
+                  </p>
+                  {/* Store Info for reassurance */}
+                  <div className="mt-4 text-blue-900 text-sm">
+                    <div className="font-semibold mb-1">Donation processed for:</div>
+                    <div className="mb-1"><span className="font-semibold">Masjid/Org:</span> {storeInfo.name}</div>
+                    <div className="mb-1"><span className="font-semibold">Contact:</span> {storeInfo.contactName}</div>
+                    <div className="mb-1"><span className="font-semibold">Email:</span> <a href={`mailto:${storeInfo.email}`} className="text-blue-700 underline">{storeInfo.email}</a></div>
+                    <div className="mb-1"><span className="font-semibold">Mobile:</span> <a href={`tel:${storeInfo.mobile}`} className="text-blue-700 underline">{storeInfo.mobile}</a></div>
+                    <div><span className="font-semibold">Website:</span> <a href={storeInfo.homepage} target="_blank" rel="noopener" className="text-blue-700 underline">{storeInfo.homepage}</a></div>
                   </div>
-                )}
-
-                {paymentMethod === 'card' && (
-                  <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                    <h5 className="font-bold text-blue-800 mb-2">Auto Payment:</h5>
-                    <p className="text-sm text-blue-700">
-                      You will be redirected to our secure payment gateway to complete your donation with credit/debit card.
-                    </p>
-                  </div>
-                )}
+                </div>
 
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
@@ -466,15 +407,67 @@ export default function DonationsPage() {
                     Cancel
                   </button>
                   <button
-                    onClick={handlePaymentSubmit}
-                    disabled={!paymentMethod || !donorInfo.name || !donorInfo.email}
+                    onClick={async () => {
+                      // Validate donor info
+                      if (!donorInfo.name.trim() || !donorInfo.email.trim()) {
+                        alert('Please enter your name and email.');
+                        return;
+                      }
+                      // Validate amount
+                      const amount = getCurrentAmount();
+                      if (amount <= 0) {
+                        alert('Please enter a valid donation amount.');
+                        return;
+                      }
+                      // Responsive loading state
+                      const btn = document.activeElement as HTMLButtonElement | null;
+                      if (btn) {
+                        btn.setAttribute('disabled', 'true');
+                        btn.textContent = 'Redirecting...';
+                      }
+                      try {
+                        const res = await fetch('/api/sslcommerz-initiate', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify({
+                            amount,
+                            donor_name: donorInfo.name.trim(),
+                            donor_email: donorInfo.email.trim(),
+                            donor_phone: donorInfo.phone.trim(),
+                            donor_address: donorInfo.address.trim(),
+                            category: selectedCategory && selectedCategory !== '' ? selectedCategory : 'General',
+                          })
+                        });
+                        const data = await res.json();
+                        if (data.url) {
+                          // Reset form before redirect
+                          setSelectedAmount(null);
+                          setCustomAmount('');
+                          setSelectedCategory('');
+                          setPaymentMethod('');
+                          setDonorInfo({ name: '', email: '', phone: '', address: '' });
+                          setShowPaymentModal(false);
+                          setShowAmountSelection(false);
+                          window.location.href = data.url;
+                        } else {
+                          alert('Payment initiation failed.\n' + (data.error ? data.error : '') + '\n' + (data.details ? JSON.stringify(data.details) : ''));
+                        }
+                      } catch (err) {
+                        alert('Network error. Please try again.');
+                      } finally {
+                        if (btn) {
+                          btn.removeAttribute('disabled');
+                          btn.textContent = 'Proceed to Payment Gateway';
+                        }
+                      }
+                    }}
                     className={`btn-mobile flex-1 haptic-light ${
-                      paymentMethod && donorInfo.name && donorInfo.email
+                      donorInfo.name && donorInfo.email
                         ? 'bg-primary-600 hover:bg-primary-700 text-white'
                         : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                     }`}
                   >
-                    {paymentMethod === 'card' ? 'Proceed to Payment Gateway' : 'Confirm Payment'}
+                    Proceed to Payment Gateway
                   </button>
                 </div>
               </div>
